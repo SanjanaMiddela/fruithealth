@@ -8,8 +8,9 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 
-pickle_in=open('model.pkl','rb')
-loaded_model=pickle.load(pickle_in)
+# pickle_in=open('model.pkl','rb')
+#loaded_model=pickle.load(pickle_in)
+modelh = keras.models.load_model('fruits21.h5')
 img_height= 100
 img_width = 100
 batch_size = 32
@@ -44,7 +45,7 @@ def fruit(data):
     img_array = tf.keras.utils.img_to_array(img)
     img_array = tf.expand_dims(img_array, 0) # create a batch
 
-    predictions_apple = loaded_model.predict(img_array)
+    predictions_apple = modelh.predict(img_array)
     score_apple = tf.nn.softmax(predictions_apple[0])
     if(class_names[np.argmax(score_apple)][:6]=="rotten"):
         return ("This",class_names[np.argmax(score_apple)][6:]," is {:.2f}".format(100-(100 * np.max(score_apple))),"% healthy")
