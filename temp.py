@@ -11,7 +11,7 @@ from tensorflow.keras import layers
 # pickle_in=open('model.pkl','rb')
 #loaded_model=pickle.load(pickle_in)
 modelh = keras.models.load_model('fruits21.h5')
-img_height= 100
+'''img_height= 100
 img_width = 100
 batch_size = 32
 
@@ -37,7 +37,7 @@ val_ds = tf.keras.utils.image_dataset_from_directory(
 
 # Print labels
 
-class_names = train_ds.class_names
+class_names = train_ds.class_names'''
 
 
 def fruit(data):
